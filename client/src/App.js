@@ -3,6 +3,7 @@ import './App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
+import AddEdit from "./pages/AddEdit";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <ToastContainer position="top-center" />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/addContact' element={<AddEdit />} />
         </Routes>
 
 
