@@ -23,7 +23,13 @@ app.get("/api/get", (req, res) => {
         else (res.send(result))
     })
 })
-
+app.post("api/post", (req, res) => {
+    const { name, email, contact } = req.body
+    const sqlInsert = "INSERT INTO contacts(name,email,contact) VALUES(?,?,?)"
+    db.query(sqlInsert, [name, email, contact], (err, result) => {
+        if (err) console.log(err)
+    })
+})
 
 app.get("/", (req, res) => {
     //const sqlinsert = "INSERT INTO contacts(name,email,contact) VALUES('eliud','eliudowalo@gmail.com','0700221145')"
