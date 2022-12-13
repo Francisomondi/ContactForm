@@ -62,6 +62,11 @@ const AddEdit = () => {
                     placeholder="Contact Number...."
                     value={contact}
                     onChange={handleInputChange} />
+
+                <input type="submit" value="Save" />
+                <Link to="/">
+                    <input type="button" value="Back" />
+                </Link>
             </form>
 
         </div>
