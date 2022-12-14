@@ -9,7 +9,7 @@ const Home = () => {
 
     const getData = async () => {
         const response = await axios.get("http://localhost:5000/api/get")
-           setData(response.data)
+        setData(response.data)
     }
     useEffect(() => {
         getData()

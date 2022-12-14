@@ -28,7 +28,9 @@ app.post("api/post", (req, res) => {
     const sqlInsert = "INSERT INTO contacts(name,email,contact) VALUES(?,?,?)"
     db.query(sqlInsert, [name, email, contact], (err, result) => {
         if (err) console.log(err)
+
     })
+
 })
 
 app.get("/", (req, res) => {
