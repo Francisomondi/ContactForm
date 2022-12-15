@@ -33,6 +33,18 @@ app.post("api/post", (req, res) => {
 
 })
 
+//delete
+app.delete("api/remove", (req, res) => {
+    const { id } = req.params
+    const sqlRemove = "DELETE FROM contacts WHERE id =?"
+    db.query(sqlRemove, id, (err, result) => {
+        if (err) console.log(err)
+
+    })
+
+})
+
+
 app.get("/", (req, res) => {
     //const sqlinsert = "INSERT INTO contacts(name,email,contact) VALUES('eliud','eliudowalo@gmail.com','0700221145')"
     //db.query(sqlinsert, (err, result) => {

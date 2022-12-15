@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import "./Home.css"
 //import toast from 'react-toastify'
 import axios from "axios"
+import { toast } from 'react-toastify';
+
 
 const Home = () => {
     const [data, setData] = useState([])
@@ -14,6 +16,16 @@ const Home = () => {
     useEffect(() => {
         getData()
     }, [])
+
+    const deleteContact = (id) => {
+        if (window.confirm("Are you sure you want to Delete?")) {
+            axios.delete(`http://localhost:5000/api/remove/${id}`)
+            toast.success("contact deleted successfully")
+
+            setTimeout(() => getData(), 500)
+        }
+
+    }
     return (
         <div style={{ marginTop: "150px" }}>
             <Link to="/addContact">
@@ -42,7 +54,7 @@ const Home = () => {
                                     <Link to={`/update/${item.id}`}>
                                         <button className="btn btn-edit">Edit</button>
                                     </Link>
-                                    <button className="btn btn-delete">Delete</button>
+                                    <button className="btn btn-delete" onClick={() => deleteContact(item.id)}>Delete</button>
 
                                     <Link to={`/view/${item.id}`}>
                                         <button className="btn btn-view">view</button>
